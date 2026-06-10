@@ -1,0 +1,31 @@
+﻿{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.node.json" },
+    { "path": "./tsconfig.web.json" }
+  ],
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@hubmind/core": ["./packages/core/src"],
+      "@hubmind/core/*": ["./packages/core/src/*"],
+      "@hubmind/shared": ["./packages/shared/src"],
+      "@hubmind/shared/*": ["./packages/shared/src/*"],
+      "@hubmind/ui": ["./packages/ui/src"],
+      "@hubmind/ui/*": ["./packages/ui/src/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "out"]
+}

@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+out/
+build/
+
+# Electron-builder output
+release/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Database
+*.sqlite
+*.sqlite3
+
+# Cache
+.turbo/
+.eslintcache
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Electron-vite build artifacts (root level)
+electron-vite.config.*.map
+
+# Windows shortcuts
+*.lnk

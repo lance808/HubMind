@@ -1,0 +1,42 @@
+{
+  "name": "hubmind",
+  "version": "0.1.0",
+  "private": true,
+  "description": "HubMind - 面向国内的全平台 AI 工作站",
+  "author": "HubMind",
+  "license": "Apache-2.0",
+  "scripts": {
+    "dev": "pnpm --filter @hubmind/desktop dev",
+    "build": "pnpm --filter @hubmind/desktop build",
+    "preview": "pnpm --filter @hubmind/desktop preview",
+    "dist": "pnpm --filter @hubmind/desktop dist",
+    "dist:win": "pnpm --filter @hubmind/desktop dist:win",
+    "lint": "eslint . --ext .ts,.tsx --fix",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"**/*.{ts,tsx,json,css,md}\""
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/node": "^22.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^33.2.0",
+    "electron-vite": "^2.3.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.0",
+    "vite": "5.4.21"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "electron",
+      "electron-builder",
+      "better-sqlite3"
+    ],
+    "overrides": {
+      "vite": "5.4.21"
+    }
+  }
+}

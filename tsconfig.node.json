@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "lib": ["ES2022"],
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "types": ["node"]
+  },
+  "include": [
+    "apps/desktop/src/main/**/*",
+    "apps/desktop/src/preload/**/*",
+    "packages/shared/src/**/*",
+    "packages/core/src/**/*",
+    "packages/ui/src/**/*"
+  ]
+}

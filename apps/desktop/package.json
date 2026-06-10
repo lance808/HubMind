@@ -1,0 +1,102 @@
+{
+  "name": "@hubmind/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "tailwind": "tailwindcss -i src/renderer/tailwind-input.css -o src/renderer/styles/tailwind-gen.css --minify",
+    "dist": "pnpm tailwind && electron-vite build && set CSC_IDENTITY_AUTO_DISCOVERY=false&& electron-builder",
+    "dist:win": "pnpm tailwind && electron-vite build && set CSC_IDENTITY_AUTO_DISCOVERY=false&& electron-builder --win",
+    "postinstall": "electron-rebuild -f -w better-sqlite3",
+    "rebuild": "electron-rebuild -f -w better-sqlite3"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.7.0",
+    "bindings": "^1.5.0",
+    "file-uri-to-path": "^2.0.0",
+    "jszip": "^3.10.1",
+    "lucide-react": "^0.460.0",
+    "mammoth": "^1.8.0",
+    "pdf-parse": "^1.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^9.0.1",
+    "rehype-highlight": "^7.0.0",
+    "xlsx": "^0.18.5",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^4.0.4",
+    "@hubmind/core": "workspace:*",
+    "@hubmind/shared": "workspace:*",
+    "@hubmind/ui": "workspace:*",
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.0",
+    "electron-vite": "^2.3.0"
+  },
+  "build": {
+    "appId": "com.hubmind.desktop",
+    "productName": "HubMind",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "out/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "node_modules/better-sqlite3",
+        "to": "better-sqlite3"
+      },
+      {
+        "from": "node_modules/bindings",
+        "to": "better-sqlite3/node_modules/bindings"
+      },
+      {
+        "from": "node_modules/file-uri-to-path",
+        "to": "better-sqlite3/node_modules/file-uri-to-path"
+      }
+    ],
+    "extraMetadata": {
+      "main": "./out/main/index.js"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "sign": null,
+      "signAndEditExecutable": false,
+      "verifyUpdateCodeSignature": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "HubMind"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.developer-tools"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Development"
+    }
+  }
+}
